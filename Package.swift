@@ -51,11 +51,11 @@ let package = Package(
 
 if Context.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil {
   package.dependencies += [
-    .package(url: "https://github.com/apple/swift-collections.git", from: "1.1.0"),
-    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
+      .package(url: "https://github.com/projectwizards/swift-collections", branch: "main"), // Fixes issue with _ on collections
+      .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
   ]
 } else {
   package.dependencies += [
-    .package(path: "../swift-collections"),
+      .package(url: "https://github.com/projectwizards/swift-collections", branch: "main"), // Fixes issue with _ on collections
   ]
 }
